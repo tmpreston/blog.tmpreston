@@ -10,6 +10,7 @@ install:
   - ps: choco install hugo-extended
 
 before_build:
+  - git submodule update --init --recursive
   # Output useful info for debugging.
   - hugo version
 
