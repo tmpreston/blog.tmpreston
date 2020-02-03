@@ -15,7 +15,8 @@ before_build:
   - hugo version
 
 build_script:
-  - hugo --destination ..\output
+  - rm -rf public\*
+  - hugo
 
 on_success:
   # Checkout blog publish git repo
@@ -25,8 +26,6 @@ on_success:
   - git config --global user.name $env:git_name
   - ps: Write-Host $env:git_name $env:git_email
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-  - rm -rf public\*
-  - xcopy ..\output ./public /E
   - cd .\public
   - git add -A
   - git commit -a -m "Commit from AppVeyor"
