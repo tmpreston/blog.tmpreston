@@ -26,8 +26,9 @@ on_success:
   - git config --global user.name $env:git_name
   - ps: Write-Host $env:git_name $env:git_email
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-  - cd .\public
-  - git remote set-url origin https://github.com/tmpreston/tmpreston.github.com.git
+  - git clone https://github.com/tmpreston/tmpreston.github.com.git ..\blog_publish
+  - xcopy ..\public ..\blog_publish /E
+  - cd ..\blog_publish
   - git add -A
   - git commit -a -m "Commit from AppVeyor"
   - git push
