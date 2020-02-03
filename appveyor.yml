@@ -15,7 +15,6 @@ before_build:
   - hugo version
 
 build_script:
-  - del /q /s public\*
   - hugo
 
 on_success:
@@ -27,6 +26,7 @@ on_success:
   - ps: Write-Host $env:git_name $env:git_email
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git clone https://github.com/tmpreston/tmpreston.github.com.git ..\blog_publish
+  - del /q /s ..\blog_publish\*
   - xcopy .\public ..\blog_publish /E
   - cd ..\blog_publish
   - git add -A
