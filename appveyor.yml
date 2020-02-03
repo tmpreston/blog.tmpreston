@@ -15,7 +15,7 @@ before_build:
   - hugo version
 
 build_script:
-  - hugo
+  - hugo -d ..\publish
 
 on_success:
   # Checkout blog publish git repo
@@ -26,9 +26,9 @@ on_success:
   - ps: Write-Host $env:git_name $env:git_email
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git clone https://github.com/tmpreston/tmpreston.github.com.git ..\blog_publish
-  #- del /q /s ..\blog_publish\*
-  - robocopy .\public ..\blog_publish /E /MIR /NP /XD ..\blog_publish\.git\ & exit 0
   - cd ..\blog_publish
+  - rm -rf *
+  - xcopy /S /E ..\publish\* .
   - git add -A
   - git commit -a -m "Commit from AppVeyor"
   - git push
