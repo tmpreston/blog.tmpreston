@@ -21,15 +21,13 @@ on_success:
   # Checkout blog publish git repo
   # See http://www.appveyor.com/docs/how-to/git-push for more info
   - git config --global credential.helper store
-  # EDIT your Git email and name
-  - git config --global user.email $env:op_build_user_email
-  - git config --global user.name $env:op_build_user
-  - ps: Write-Host $env:op_build_user_email $env:op_build_user
-  #- ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-  #- git clone https://github.com/tmpreston/tmpreston.github.com ../blog_publish
-  #- rm -rf ../blog_publish/*
-  #- xcopy ..\output ../blog_publish /E
-  #- cd ../blog_publish
-  #- git add -A
-  #- git commit -a -m "Commit from AppVeyor"
-  #- git push
+  - git config --global user.email $env:git_email
+  - git config --global user.name $env:git_name
+  - ps: Write-Host $env:git_name $env:git_email
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - rm -rf public\*
+  - xcopy ..\output ./public /E
+  - cd .\public
+  - git add -A
+  - git commit -a -m "Commit from AppVeyor"
+  - git push
