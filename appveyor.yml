@@ -24,12 +24,12 @@ on_success:
   # EDIT your Git email and name
   - git config --global user.email $env:op_build_user_email
   - git config --global user.name $env:op_build_user
-  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-  #- git checkout gh-pages
-  #- git rm -rf .
-  - xcopy ..\output . /E
-  # EDIT the origin of your repository - have to reset it here because AppVeyor pulls from SSH, but GitHub won't accept SSH pushes
-  #- git remote set-url origin https://github.com/Wyamio/Wyam.Web.git
+  - ps: Write-Host $env:op_build_user_email $env:op_build_user
+  #- ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  #- git clone https://github.com/tmpreston/tmpreston.github.com ../blog_publish
+  #- rm -rf ../blog_publish/*
+  #- xcopy ..\output ../blog_publish /E
+  #- cd ../blog_publish
   #- git add -A
   #- git commit -a -m "Commit from AppVeyor"
   #- git push
