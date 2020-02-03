@@ -7,7 +7,7 @@ environment:
     secure: CS27j1gIZOMj3Bk897Ksfp6m2II2rxZ5pyYIC9V2hxpOfM7LRfB1UgB2tvmaDL1Q
 
 install:
-  - ps: choco install hugo-extended
+  - ps: choco install hugo-extended --no-progress
 
 before_build:
   - git submodule update --init --recursive
