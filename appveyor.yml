@@ -26,8 +26,8 @@ on_success:
   - ps: Write-Host $env:git_name $env:git_email
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git clone https://github.com/tmpreston/tmpreston.github.com.git ..\blog_publish
-  - del /q /s ..\blog_publish\*
-  - xcopy .\public ..\blog_publish /E
+  #- del /q /s ..\blog_publish\*
+  - robocopy .\public ..\blog_publish /E /MIR
   - cd ..\blog_publish
   - git add -A
   - git commit -a -m "Commit from AppVeyor"
