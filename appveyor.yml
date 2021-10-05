@@ -4,7 +4,7 @@ branches:
     
 environment:
   access_token:
-    secure: CS27j1gIZOMj3Bk897Ksfp6m2II2rxZ5pyYIC9V2hxpOfM7LRfB1UgB2tvmaDL1Q
+    secure: 6qBndOsAtojCTPhoGh/52TFYTTeu/59hXpXMjyOqU8Q1m05dSqtiRYFMBMBL3cjU
 
 install:
   - ps: choco install hugo-extended --no-progress
@@ -24,7 +24,7 @@ on_success:
   - git config --global user.email $env:git_email
   - git config --global user.name $env:git_name
   - ps: Write-Host $env:git_name $env:git_email
-  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n" -NoNewline
   - git clone https://github.com/tmpreston/tmpreston.github.com.git ..\blog_publish
   - cd ..\blog_publish
   - rm -rf *
