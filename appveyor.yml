@@ -4,7 +4,7 @@ branches:
 
 environment:
   access_token:
-    secure: jr6wOpi9H/yYyVdODLSxijNTCYgH/BxdtJxfUnpO8/HmaAEv3d/USXOdW+ZI+tmOHUcolE7NQpQDrLGk2rulnXxbf3Z9KEKfIkr0FohSmcqro6YQN+ic6ELjybZHO4tv
+    secure: jr6wOpi9H/yYyVdODLSxisEjH6X4K8aeVDrfTn90cvc/5+HKCkwIaBTnVsn+1B0vMoCXsG+hCkyqrKGlbaAZHjFogYCpjdAEZ6EWF0gtrrJt5geJi0z7c/HLSuBl4VsQ
 
 install:
   - ps: choco install hugo-extended --no-progress
