@@ -1,10 +1,10 @@
 branches:
   only:
     - master
-    
+
 environment:
   access_token:
-    secure: 6qBndOsAtojCTPhoGh/52TFYTTeu/59hXpXMjyOqU8Q1m05dSqtiRYFMBMBL3cjU
+    secure: jr6wOpi9H/yYyVdODLSxijNTCYgH/BxdtJxfUnpO8/HmaAEv3d/USXOdW+ZI+tmOHUcolE7NQpQDrLGk2rulnXxbf3Z9KEKfIkr0FohSmcqro6YQN+ic6ELjybZHO4tv
 
 install:
   - ps: choco install hugo-extended --no-progress
