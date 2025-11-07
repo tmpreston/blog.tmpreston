@@ -27,7 +27,7 @@ Hopefully this helps someone and/or makes me internet famous if it hits the [Oct
 
 Script console worked well.  Just used the following powershell to update a bunch of tentacles.
 
-```Powershell
+```
 #Enable automatic recovery of *Tentacle* services
 $TentaclesServices = Get-Service | Where-Object {$_.name -like '*Tentacle*'}
 foreach($Tentacle in $TentaclesServices) {
