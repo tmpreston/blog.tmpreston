@@ -9,7 +9,7 @@ hasCJKLanguage = false # Set `true` for Chinese/Japanese/Korean languages.
 summaryLength = 250 # The length of a post description on a list page.
 buildFuture = true # if true, we can use future date for talks page
 
-copyright = "©2015-{year}, All Rights Reserved" # copyright symbol: $copy; current year: {year}
+copyright = "©2015-2025, All Rights Reserved" # copyright symbol: $copy; current year: {year}
 timeout = 10000
 enableEmoji = true
 rssLimit = 100
