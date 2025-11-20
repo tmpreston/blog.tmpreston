@@ -1,6 +1,6 @@
 baseURL = "https://blog.uitlanders.com/" # The URL of your site.
 title = "Learn by doing!" # Title of your site
-theme = "paper"
+theme = "hugo-glass"
 
 defaultContentLanguage = "en" # Default language to use (if you setup multilingual)
 defaultContentLanguageInSubdir = false # baseURL/en/, baseURL/kr/ ...
@@ -37,7 +37,7 @@ googleAnalytics = ""
     startLevel = 2
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
 
 [taxonomies]
   category = "categories"
